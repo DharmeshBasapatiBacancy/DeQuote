@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DeQuote</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="label_login">Login</string>
+    <string name="label_create_new_account">Create  New Account</string>
+    <string name="label_signup">Signup</string>
+    <string name="hint_username">Username</string>
+</resources>
