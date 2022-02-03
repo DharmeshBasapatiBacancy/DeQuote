@@ -5,10 +5,13 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class DeQuoteDataStore(private val context: Context) {
+class DeQuoteDataStore(@ApplicationContext context: Context) {
+
+    private val appContext = context.applicationContext
 
     companion object {
 
@@ -24,36 +27,42 @@ class DeQuoteDataStore(private val context: Context) {
 
     }
 
-    suspend fun setEmail(email: String){
-        context.deQuoteDataStore.edit { prefs ->
+    suspend fun setEmail(email: String) {
+        appContext.deQuoteDataStore.edit { prefs ->
             prefs[EMAIL_KEY] = email
         }
     }
 
-    suspend fun setPassword(password: String){
-        context.deQuoteDataStore.edit { prefs ->
+    suspend fun setPassword(password: String) {
+        appContext.deQuoteDataStore.edit { prefs ->
             prefs[PASSWORD_KEY] = password
         }
     }
 
-    suspend fun setIsLoggedIn(isLoggedIn: Boolean){
-        context.deQuoteDataStore.edit { prefs ->
+    suspend fun setIsLoggedIn(isLoggedIn: Boolean) {
+        appContext.deQuoteDataStore.edit { prefs ->
             prefs[IS_LOGGED_IN_KEY] = isLoggedIn
         }
     }
 
     val email: Flow<String>
-        get() = context.deQuoteDataStore.data.map {
+        get() = appContext.deQuoteDataStore.data.map {
             it[EMAIL_KEY] ?: ""
         }
 
     val password: Flow<String>
-        get() = context.deQuoteDataStore.data.map {
+        get() = appContext.deQuoteDataStore.data.map {
             it[PASSWORD_KEY] ?: ""
         }
 
     val isLoggedIn: Flow<Boolean>
-        get() = context.deQuoteDataStore.data.map {
+        get() = appContext.deQuoteDataStore.data.map {
             it[IS_LOGGED_IN_KEY] ?: false
         }
+
+    suspend fun clear() {
+        appContext.deQuoteDataStore.edit { preferences ->
+            preferences.clear()
+        }
+    }
 }

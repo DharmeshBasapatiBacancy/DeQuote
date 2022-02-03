@@ -108,5 +108,36 @@ class UserViewModel @Inject constructor(private val userDao: UserDao) : ViewMode
         }
     }
 
+    private val _userDetails = MutableLiveData<User>()
+
+    fun userDetails(): LiveData<User> = _userDetails
+
+    fun getUserDetails(userEmail: String) {
+
+        viewModelScope.launch {
+
+            _userDetails.postValue(
+                userDao.getUserDetails(userEmail)
+            )
+        }
+
+    }
+
+    fun updateUserDetails(userName: String, userEmail: String, userPassword: String) {
+
+        viewModelScope.launch {
+
+            userDao.updateUserDetails(
+                userName = userName,
+                userEmail = userEmail,
+                userPassword = userPassword
+            )
+
+            getUserDetails(userEmail)
+
+        }
+
+    }
+
 
 }

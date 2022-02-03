@@ -1,9 +1,6 @@
 package com.example.dequote.local.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.dequote.local.entites.User
 
 @Dao
@@ -17,5 +14,12 @@ interface UserDao {
 
     @Query("SELECT EXISTS(SELECT * from user where userEmail = :userEmail and userPassword = :userPassword)")
     suspend fun checkValidCredentialsOrNot(userEmail: String, userPassword: String): Boolean
+
+    @Query("SELECT * FROM user where userEmail = :userEmail")
+    suspend fun getUserDetails(userEmail: String): User
+
+    @Query("UPDATE user SET userName = :userName, userPassword = :userPassword  where userEmail = :userEmail")
+    suspend fun updateUserDetails(userName: String, userEmail: String, userPassword: String)
+
 
 }

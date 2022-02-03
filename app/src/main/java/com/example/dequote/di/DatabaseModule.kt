@@ -3,6 +3,7 @@ package com.example.dequote.di
 import android.content.Context
 import androidx.room.Room
 import com.example.dequote.local.DeQuoteDatabase
+import com.example.dequote.local.dao.QuotesDao
 import com.example.dequote.local.dao.UserDao
 import dagger.Module
 import dagger.Provides
@@ -18,6 +19,11 @@ class DatabaseModule {
     @Provides
     fun provideUserDao(deQuoteDatabase: DeQuoteDatabase): UserDao {
         return deQuoteDatabase.userDao()
+    }
+
+    @Provides
+    fun provideQuotesDao(deQuoteDatabase: DeQuoteDatabase): QuotesDao {
+        return deQuoteDatabase.quotesDao()
     }
 
     @Provides

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dequote.databinding.RowItemQuotesBinding
 import com.example.dequote.network.models.Quote
 
-class QuotesListAdapter :
+class QuotesListAdapter(var onItemClick : (Quote) -> Unit) :
     PagingDataAdapter<Quote, QuotesListAdapter.ViewHolder>(COMPARATOR) {
 
     companion object {
@@ -23,9 +23,12 @@ class QuotesListAdapter :
 
     class ViewHolder(private val rowItemQuotesBinding: RowItemQuotesBinding) :
         RecyclerView.ViewHolder(rowItemQuotesBinding.root) {
-        fun bind(quote: Quote) = with(rowItemQuotesBinding) {
+        fun bind(quote: Quote, onItemClick : (Quote) -> Unit) = with(rowItemQuotesBinding) {
             tvQuote.text = quote.content
             tvAuthor.text = quote.author
+            itemView.setOnClickListener {
+                onItemClick(quote)
+            }
         }
     }
 
@@ -34,7 +37,7 @@ class QuotesListAdapter :
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        getItem(position)?.let { holder.bind(it) }
+        getItem(position)?.let { holder.bind(it, onItemClick = onItemClick) }
     }
 
 }

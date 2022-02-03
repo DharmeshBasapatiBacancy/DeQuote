@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dequote.R
 import com.example.dequote.base.BaseFragment
 import com.example.dequote.databinding.FragmentQuotesListBinding
+import com.example.dequote.local.entites.FavQuotes
 import com.example.dequote.network.models.Quote
 import com.example.dequote.utils.Status
 import com.example.dequote.utils.hide
@@ -44,36 +45,18 @@ class QuotesListFragment :
             }
         }
 
-
-        /*homeViewModel.quotesList().observe(requireActivity()) {
-            Log.d(TAG, "Response of Quotes List = $it")
-            when (it.status) {
-
-                Status.SUCCESS -> {
-                    binding.rvQuotes.show()
-                    binding.progressBar.hide()
-                }
-                Status.ERROR -> {
-                    binding.rvQuotes.show()
-                    binding.progressBar.hide()
-                    requireContext().showToast(it.message.toString())
-                }
-                Status.LOADING -> {
-                    binding.rvQuotes.hide()
-                    binding.progressBar.show()
-                }
-
-            }
-        }*/
-
     }
 
     private fun setupList() {
         binding.rvQuotes.layoutManager = LinearLayoutManager(requireContext())
 
-        quotesListAdapter = QuotesListAdapter()
+        quotesListAdapter = QuotesListAdapter() {
+            requireContext().showToast("Added to Favorites")
+            homeViewModel.insertFavQuote(FavQuotes(author = it.author, content = it.content))
+        }
 
-        binding.rvQuotes.adapter = quotesListAdapter.withLoadStateFooter(footer = QuotesLoadStateAdapter())
+        binding.rvQuotes.adapter =
+            quotesListAdapter.withLoadStateFooter(footer = QuotesLoadStateAdapter())
     }
 
 }

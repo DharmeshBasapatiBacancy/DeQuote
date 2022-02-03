@@ -7,4 +7,6 @@
     <string name="label_signup">Signup</string>
     <string name="hint_username">Username</string>
     <string name="label_logout">Logout</string>
+    <string name="label_my_profile">My Profile</string>
+    <string name="label_update_profile">Update Profile</string>
 </resources>
