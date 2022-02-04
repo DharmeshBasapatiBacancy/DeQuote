@@ -1,6 +1,6 @@
 package com.example.dequote.network.models
 
-data class Quote(
+data class QuoteApi(
     val _id: String,
     val author: String,
     val authorSlug: String,

@@ -3,15 +3,15 @@
 
     <item
         android:id="@+id/quotesListFragment"
-        android:icon="@drawable/ic_baseline_format_quote_24"
+        android:icon="@drawable/ic_icon_quotes"
         android:title="Quotes" />
     <item
         android:id="@+id/favQuotesListFragment"
-        android:icon="@drawable/ic_baseline_favorite_24"
+        android:icon="@drawable/ic_icon_favorite"
         android:title="Favorites" />
     <item
         android:id="@+id/myProfileFragment"
-        android:icon="@drawable/ic_baseline_person_pin_24"
+        android:icon="@drawable/ic_icon_my_profile"
         android:title="My Profile" />
 
 </menu>

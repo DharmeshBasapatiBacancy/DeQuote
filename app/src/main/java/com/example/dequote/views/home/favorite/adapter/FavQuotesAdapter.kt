@@ -3,9 +3,9 @@ package com.example.dequote.views.home.favorite.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dequote.R
 import com.example.dequote.databinding.RowItemQuotesBinding
 import com.example.dequote.local.entites.FavQuotes
-import com.example.dequote.network.models.Quote
 
 class FavQuotesAdapter(var favQuotes: List<FavQuotes>,
                        var onItemClick : (FavQuotes) -> Unit) :
@@ -21,9 +21,10 @@ class FavQuotesAdapter(var favQuotes: List<FavQuotes>,
         with(holder) {
             with(favQuotes[position]) {
                 rowItemQuotesBinding.apply {
-                    tvQuote.text = content
-                    tvAuthor.text = author
-                    itemView.setOnClickListener {
+                    tvQuote.text = " \" $content \" "
+                    tvAuthor.text = "- $author"
+                    imgFav.setImageResource(R.drawable.ic_icon_favorite)
+                    imgFav.setOnClickListener {
                         onItemClick(favQuotes[position])
                     }
                 }

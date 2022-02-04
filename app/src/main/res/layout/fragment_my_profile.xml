@@ -16,13 +16,12 @@
         android:layout_height="match_parent"
         tools:context=".views.home.profile.MyProfileFragment">
 
-        <TextView
+        <ImageView
             android:id="@+id/tvAppLabel"
-            style="@style/TextAppearance.MaterialComponents.Headline4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_30sdp"
-            android:text="@string/label_my_profile"
+            android:src="@drawable/ic_baseline_format_quote_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +41,7 @@
                 android:id="@+id/edtUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:afterTextChanged="@{userViewModel.afterTextChangedOnUsername}"
+                android:afterTextChanged="@{userViewModel::afterTextChangedOnUsername}"
                 android:inputType="text"
                 android:textColorHint="#616161" />
 
@@ -64,7 +63,7 @@
                 android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:afterTextChanged="@{userViewModel.afterTextChangedOnEmail}"
+                android:afterTextChanged="@{userViewModel::afterTextChangedOnEmail}"
                 android:inputType="textEmailAddress"
                 android:textColorHint="#616161" />
 
@@ -86,7 +85,7 @@
                 android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:afterTextChanged="@{userViewModel.afterTextChangedOnPassword}"
+                android:afterTextChanged="@{userViewModel::afterTextChangedOnPassword}"
                 android:inputType="textPassword"
                 android:maxLength="8"
                 android:textColorHint="#616161" />

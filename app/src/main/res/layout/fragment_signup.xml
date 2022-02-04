@@ -42,7 +42,7 @@
                 android:id="@+id/edtUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:afterTextChanged="@{userViewModel.afterTextChangedOnUsername}"
+                android:afterTextChanged="@{userViewModel::afterTextChangedOnUsername}"
                 android:inputType="text"
                 android:textColorHint="#616161" />
 
@@ -63,7 +63,7 @@
                 android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:afterTextChanged="@{userViewModel.afterTextChangedOnEmail}"
+                android:afterTextChanged="@{userViewModel::afterTextChangedOnEmail}"
                 android:inputType="textEmailAddress"
                 android:textColorHint="#616161" />
 
@@ -85,7 +85,7 @@
                 android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:afterTextChanged="@{userViewModel.afterTextChangedOnPassword}"
+                android:afterTextChanged="@{userViewModel::afterTextChangedOnPassword}"
                 android:inputType="textPassword"
                 android:maxLength="8"
                 android:textColorHint="#616161" />

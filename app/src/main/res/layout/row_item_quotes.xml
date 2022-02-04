@@ -18,23 +18,33 @@
 
             <TextView
                 android:id="@+id/tvQuote"
-                style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:textSize="@dimen/_18sdp"
                 android:text="Hope is a beautiful thing."
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="13dp" />
 
             <TextView
                 android:id="@+id/tvAuthor"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Steve Jobs"
+                android:textSize="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="- Steve Jobs"
                 android:textColor="@color/primaryColor"
+                app:layout_constraintEnd_toStartOf="@id/imgFav"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvQuote" />
+
+            <ImageView
+                android:id="@+id/imgFav"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                app:layout_constraintTop_toBottomOf="@id/tvQuote"
+                android:src="@drawable/ic_icon_un_favorite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

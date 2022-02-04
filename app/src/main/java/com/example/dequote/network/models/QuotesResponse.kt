@@ -1,5 +1,7 @@
 package com.example.dequote.network.models
 
+import com.example.dequote.local.entites.Quote
+
 data class QuotesResponse(
     val count: Int,
     val lastItemIndex: Int,

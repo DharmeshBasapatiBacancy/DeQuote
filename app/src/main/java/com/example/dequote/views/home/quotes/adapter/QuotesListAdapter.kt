@@ -5,16 +5,19 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dequote.R
 import com.example.dequote.databinding.RowItemQuotesBinding
-import com.example.dequote.network.models.Quote
+import com.example.dequote.local.entites.Quote
+import com.example.dequote.network.models.QuoteApi
+import javax.inject.Inject
 
-class QuotesListAdapter(var onItemClick : (Quote) -> Unit) :
+class QuotesListAdapter(var onItemClick: (Quote) -> Unit) :
     PagingDataAdapter<Quote, QuotesListAdapter.ViewHolder>(COMPARATOR) {
 
     companion object {
         private val COMPARATOR = object : DiffUtil.ItemCallback<Quote>() {
             override fun areItemsTheSame(oldItem: Quote, newItem: Quote): Boolean =
-                oldItem.content == newItem.content
+                oldItem._id == newItem._id
 
             override fun areContentsTheSame(oldItem: Quote, newItem: Quote): Boolean =
                 oldItem == newItem
@@ -23,11 +26,16 @@ class QuotesListAdapter(var onItemClick : (Quote) -> Unit) :
 
     class ViewHolder(private val rowItemQuotesBinding: RowItemQuotesBinding) :
         RecyclerView.ViewHolder(rowItemQuotesBinding.root) {
-        fun bind(quote: Quote, onItemClick : (Quote) -> Unit) = with(rowItemQuotesBinding) {
-            tvQuote.text = quote.content
-            tvAuthor.text = quote.author
-            itemView.setOnClickListener {
-                onItemClick(quote)
+        fun bind(quoteApi: Quote, onItemClick: (Quote) -> Unit) = with(rowItemQuotesBinding) {
+            tvQuote.text = " \" ${quoteApi.content} \" "
+            tvAuthor.text = "- ${quoteApi.author}"
+            imgFav.setImageResource(R.drawable.ic_icon_un_favorite)
+            if (quoteApi.isFavorite) {
+                imgFav.setImageResource(R.drawable.ic_icon_favorite)
+            }
+            imgFav.setOnClickListener {
+                imgFav.setImageResource(R.drawable.ic_icon_favorite)
+                onItemClick(quoteApi)
             }
         }
     }
