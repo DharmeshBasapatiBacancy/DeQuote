@@ -11,7 +11,7 @@ import com.example.dequote.base.BaseFragment
 import com.example.dequote.databinding.FragmentLoginBinding
 import com.example.dequote.utils.showToast
 import com.example.dequote.viewmodels.UserViewModel
-import com.example.dequote.HomeActivity
+import com.example.dequote.views.home.HomeActivity
 import com.example.dequote.utils.DeQuoteDataStore
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

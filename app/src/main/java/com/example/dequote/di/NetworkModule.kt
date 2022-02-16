@@ -20,7 +20,7 @@ object NetworkModule {
     @Provides
     fun provideOkHttp(): OkHttpClient {
         return OkHttpClient.Builder()
-            .addInterceptor(provideLoggingInterceptor())
+            .addInterceptor(HttpLoggingInterceptor())
             .build()
     }
 

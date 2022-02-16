@@ -11,8 +11,6 @@ import com.example.dequote.local.dao.QuotesDao
 import com.example.dequote.local.entites.FavQuotes
 import com.example.dequote.local.entites.Quote
 import com.example.dequote.network.ApiService
-import com.example.dequote.network.models.QuoteApi
-import com.example.dequote.paging.PagingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
@@ -20,7 +18,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val pagingRepository: PagingRepository,
     private val quotesDao: QuotesDao,
     private val deQuoteDatabase: DeQuoteDatabase,
     private val apiService: ApiService

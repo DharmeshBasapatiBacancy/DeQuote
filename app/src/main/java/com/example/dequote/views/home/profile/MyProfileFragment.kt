@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.dequote.UserLoginActivity
+import com.example.dequote.views.account.UserLoginActivity
 import com.example.dequote.base.BaseFragment
 import com.example.dequote.databinding.FragmentMyProfileBinding
 import com.example.dequote.utils.DeQuoteDataStore

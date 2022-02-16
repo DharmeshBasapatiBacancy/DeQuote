@@ -86,7 +86,7 @@ dependencies {
 
     //Lifecycle related
     implementation 'android.arch.lifecycle:extensions:1.1.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
 
     //SDP and SSP for responsive design
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
@@ -100,6 +100,6 @@ dependencies {
 
     //Datastore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
 
 }

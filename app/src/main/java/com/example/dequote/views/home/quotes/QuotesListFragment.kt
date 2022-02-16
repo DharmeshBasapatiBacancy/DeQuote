@@ -1,11 +1,14 @@
 package com.example.dequote.views.home.quotes
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dequote.R
 import com.example.dequote.base.BaseFragment
 import com.example.dequote.databinding.FragmentQuotesListBinding
 import com.example.dequote.local.entites.FavQuotes
@@ -39,7 +42,15 @@ class QuotesListFragment :
                 quotesListAdapter.submitData(it)
             }
         }
+    }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.home_menu,menu)
     }
 
     private fun setupList() {

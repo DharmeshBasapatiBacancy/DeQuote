@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dequote.R
 import com.example.dequote.databinding.RowItemQuotesBinding
 import com.example.dequote.local.entites.Quote
-import com.example.dequote.network.models.QuoteApi
-import javax.inject.Inject
 
 class QuotesListAdapter(var onItemClick: (Quote) -> Unit) :
     PagingDataAdapter<Quote, QuotesListAdapter.ViewHolder>(COMPARATOR) {

@@ -1,4 +1,4 @@
-package com.example.dequote
+package com.example.dequote.views.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

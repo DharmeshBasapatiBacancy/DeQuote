@@ -1,4 +1,4 @@
-package com.example.dequote
+package com.example.dequote.views.account
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,10 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.navigateUp
+import com.example.dequote.R
 import com.example.dequote.databinding.ActivityMainBinding
 import com.example.dequote.utils.DeQuoteDataStore
+import com.example.dequote.views.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
